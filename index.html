@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KAMMERGUT Tiergenuss — 87% Fleischanteil, natürlich, regional, ehrlich. Hundefutter in Lebensmittelqualität aus Österreich.">
+<title>KAMMERGUT — Tiergenuss für Hunde</title>
+<style>
+  :root {
+    --black:   #0a0a08;
+    --gold:    #c8a44a;
+    --gold-dk: #8b6f2e;
+    --green:   #3a6b34;
+    --green-lt:#4e8f47;
+    --red:     #8b2020;
+    --white:   #f5f2eb;
+    --mid:     #2a2a24;
+    --muted:   #7a7060;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.65;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .brand {
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  h1, h2, h3 { font-family: 'Arial Black', 'Impact', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
+  h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1; }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.1; }
+  h3 { font-size: clamp(1rem, 2.5vw, 1.4rem); color: var(--gold); }
+  p  { max-width: 68ch; }
+
+  /* ── LAYOUT ── */
+  .wrap  { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .wrap--narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,8,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,164,74,.2);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Arial Black', sans-serif;
+    font-size: .85rem; letter-spacing: .12em; color: var(--gold);
+  }
+  .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-family: Arial, sans-serif; font-size: .85rem; letter-spacing: .06em; transition: color .2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--black);
+    font-family: Arial, sans-serif; font-weight: 700; font-size: .8rem;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 9px 20px; border-radius: 2px; text-decoration: none;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: #e0b854; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100svh;
+    display: grid; place-items: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, #1a1a0f 0%, #0a0a08 100%);
+    padding: 120px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(58,107,52,.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(200,164,74,.06) 0%, transparent 50%);
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    text-align: center; max-width: 900px; margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-block; margin-bottom: 28px;
+    font-family: Arial, sans-serif; font-size: .8rem; letter-spacing: .18em;
+    color: var(--gold); border: 1px solid rgba(200,164,74,.35); padding: 6px 18px; border-radius: 2px;
+  }
+  .hero-headline { color: var(--white); margin-bottom: 8px; }
+  .hero-headline .accent { color: var(--gold); }
+  .hero-sub {
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem); color: #b5ae9e;
+    margin: 24px auto 0; font-style: italic;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 48px;
+    margin: 52px 0; flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num {
+    font-family: 'Arial Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem); color: var(--gold);
+    line-height: 1; display: block;
+  }
+  .hero-stat-label {
+    font-family: Arial, sans-serif; font-size: .8rem; color: var(--muted);
+    letter-spacing: .08em; text-transform: uppercase; display: block; margin-top: 4px;
+  }
+  .hero-divider {
+    width: 1px; height: 48px; background: rgba(200,164,74,.25);
+    align-self: center;
+  }
+  .hero-cta-row {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 44px;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--black);
+    font-family: Arial, sans-serif; font-weight: 700; font-size: .9rem;
+    letter-spacing: .06em; text-transform: uppercase;
+    padding: 16px 36px; border-radius: 2px; text-decoration: none;
+    transition: background .2s; display: inline-block;
+  }
+  .btn-primary:hover { background: #e0b854; }
+  .btn-outline {
+    border: 1px solid rgba(200,164,74,.5); color: var(--gold);
+    font-family: Arial, sans-serif; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase;
+    padding: 15px 36px; border-radius: 2px; text-decoration: none;
+    transition: border-color .2s, color .2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: #e0b854; }
+
+  /* ── MIRROR STRIP ── */
+  #mirror {
+    background: var(--mid);
+    border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold);
+    padding: 72px 24px;
+  }
+  .mirror-inner {
+    max-width: 900px; margin: 0 auto; text-align: center;
+  }
+  .mirror-quote {
+    font-size: clamp(1.25rem, 3vw, 1.9rem);
+    line-height: 1.45; font-style: italic; color: var(--white);
+    margin-bottom: 24px;
+  }
+  .mirror-quote strong { color: var(--gold); font-style: normal; }
+  .mirror-sub {
+    font-family: Arial, sans-serif; font-size: .9rem; color: var(--muted); max-width: 60ch; margin: 0 auto;
+  }
+
+  /* ── PRODUCTS ── */
+  #products { padding: 100px 24px; }
+  .section-label {
+    font-family: Arial, sans-serif; font-size: .75rem; letter-spacing: .18em;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .section-head { margin-bottom: 60px; }
+  .products-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px; margin-bottom: 2px;
+  }
+  .product-card {
+    background: var(--mid); padding: 44px 36px;
+    border-top: 3px solid transparent;
+    transition: border-color .2s;
+  }
+  .product-card.lamb  { border-top-color: var(--green); }
+  .product-card.chicken { border-top-color: #c87832; }
+  .product-card.beef  { border-top-color: var(--red); }
+  .product-card:hover { background: #323228; }
+
+  .product-animal {
+    font-size: 2.5rem; margin-bottom: 16px; display: block;
+  }
+  .product-name {
+    font-family: 'Arial Black', sans-serif; font-size: 1.5rem;
+    text-transform: uppercase; letter-spacing: .02em; margin-bottom: 6px;
+  }
+  .product-name.lamb { color: var(--green-lt); }
+  .product-name.chicken { color: #e0943a; }
+  .product-name.beef { color: #c84040; }
+
+  .product-tagline {
+    font-style: italic; color: var(--muted); font-size: .95rem; margin-bottom: 28px;
+  }
+  .product-specs { list-style: none; margin-bottom: 32px; }
+  .product-specs li {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-family: Arial, sans-serif; font-size: .88rem; color: #c8c0b0;
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .product-specs li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+  .size-row {
+    display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap;
+  }
+  .size-btn {
+    border: 1px solid rgba(200,164,74,.3); color: var(--gold);
+    font-family: Arial, sans-serif; font-size: .8rem; letter-spacing: .06em;
+    padding: 8px 18px; border-radius: 2px; cursor: pointer;
+    background: transparent; transition: all .2s;
+  }
+  .size-btn.active, .size-btn:hover {
+    background: var(--gold); color: var(--black); border-color: var(--gold);
+  }
+  .product-price {
+    font-family: 'Arial Black', sans-serif; font-size: 1.8rem; color: var(--white);
+    margin-bottom: 4px;
+  }
+  .product-price-sub {
+    font-family: Arial, sans-serif; font-size: .8rem; color: var(--muted); margin-bottom: 20px;
+  }
+  .btn-product {
+    display: block; text-align: center; width: 100%;
+    background: transparent; border: 1px solid var(--gold); color: var(--gold);
+    font-family: Arial, sans-serif; font-weight: 700; font-size: .85rem;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 13px; border-radius: 2px; text-decoration: none;
+    transition: all .2s; cursor: pointer;
+  }
+  .btn-product:hover { background: var(--gold); color: var(--black); }
+
+  /* ── ABO ── */
+  #abo {
+    background: linear-gradient(135deg, #141410 0%, #1c1c14 100%);
+    border-top: 1px solid rgba(200,164,74,.2);
+    border-bottom: 1px solid rgba(200,164,74,.2);
+    padding: 100px 24px;
+  }
+  .abo-inner { max-width: 920px; margin: 0 auto; }
+  .abo-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center; margin-top: 52px;
+  }
+  .abo-plans { display: flex; flex-direction: column; gap: 16px; }
+  .abo-plan {
+    background: var(--mid); padding: 28px 28px;
+    border-left: 3px solid transparent; cursor: pointer;
+    transition: background .2s, border-color .2s;
+  }
+  .abo-plan.active, .abo-plan:hover {
+    border-left-color: var(--gold); background: #323228;
+  }
+  .abo-plan-name {
+    font-family: 'Arial Black', sans-serif; font-size: 1rem;
+    text-transform: uppercase; letter-spacing: .04em; color: var(--white); margin-bottom: 4px;
+  }
+  .abo-plan-desc { font-family: Arial, sans-serif; font-size: .85rem; color: var(--muted); }
+  .abo-plan-saving { font-family: Arial, sans-serif; font-size: .8rem; color: var(--green-lt); margin-top: 6px; }
+
+  .abo-benefits { }
+  .abo-benefit {
+    display: flex; gap: 16px; margin-bottom: 24px;
+  }
+  .abo-benefit-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(200,164,74,.1); display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .abo-benefit-text h4 {
+    font-family: Arial, sans-serif; font-weight: 700; font-size: .95rem; color: var(--white); margin-bottom: 2px;
+  }
+  .abo-benefit-text p {
+    font-family: Arial, sans-serif; font-size: .85rem; color: var(--muted);
+  }
+  .abo-cta { margin-top: 36px; }
+
+  /* ── TRUTH ── */
+  #truth { padding: 100px 24px; }
+  .truth-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start; margin-top: 52px;
+  }
+  .truth-table { width: 100%; border-collapse: collapse; }
+  .truth-table th {
+    font-family: Arial, sans-serif; font-size: .75rem; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--gold); padding: 0 0 10px;
+    border-bottom: 1px solid rgba(200,164,74,.3); text-align: left;
+  }
+  .truth-table td {
+    font-family: Arial, sans-serif; font-size: .88rem;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+    color: #c8c0b0; vertical-align: top;
+  }
+  .truth-table td:first-child { color: var(--white); font-weight: 700; }
+  .truth-table td.good { color: var(--green-lt); font-weight: 700; }
+
+  .ingredient-block { margin-bottom: 32px; }
+  .ingredient-name {
+    font-family: 'Arial Black', sans-serif; font-size: .95rem;
+    text-transform: uppercase; color: var(--white); margin-bottom: 6px;
+  }
+  .ingredient-bar {
+    height: 4px; background: rgba(255,255,255,.1); border-radius: 2px;
+    margin-bottom: 6px; overflow: hidden;
+  }
+  .ingredient-bar-fill {
+    height: 100%; background: var(--gold); border-radius: 2px;
+    transition: width .6s ease;
+  }
+  .ingredient-val {
+    font-family: Arial, sans-serif; font-size: .8rem; color: var(--muted);
+  }
+
+  /* ── SCIENCE ── */
+  #science {
+    background: var(--mid); padding: 100px 24px;
+  }
+  .science-inner { max-width: 920px; margin: 0 auto; }
+  .science-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 52px;
+  }
+  .science-card {
+    background: #0a0a08; padding: 36px 28px;
+  }
+  .science-card-num {
+    font-family: 'Arial Black', sans-serif; font-size: 3rem;
+    color: rgba(200,164,74,.15); line-height: 1; margin-bottom: 16px;
+  }
+  .science-card h3 { font-size: 1rem; margin-bottom: 12px; }
+  .science-card p {
+    font-family: Arial, sans-serif; font-size: .88rem;
+    color: var(--muted); line-height: 1.6; max-width: none;
+  }
+
+  /* ── FEEDING TABLE ── */
+  #feeding { padding: 80px 24px; }
+  .feeding-table { width: 100%; border-collapse: collapse; max-width: 680px; }
+  .feeding-table th {
+    font-family: Arial, sans-serif; font-size: .75rem; letter-spacing: .12em;
+    color: var(--gold); text-align: left; padding: 10px 20px;
+    border-bottom: 1px solid rgba(200,164,74,.3); text-transform: uppercase;
+  }
+  .feeding-table td {
+    font-family: Arial, sans-serif; font-size: .92rem;
+    padding: 13px 20px; border-bottom: 1px solid rgba(255,255,255,.05);
+    color: #c8c0b0;
+  }
+  .feeding-table tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+  /* ── ORIGIN ── */
+  #origin {
+    background: linear-gradient(180deg, #0a0a08 0%, #0f120a 100%);
+    border-top: 1px solid rgba(58,107,52,.3);
+    padding: 100px 24px;
+  }
+  .origin-inner { max-width: 920px; margin: 0 auto; text-align: center; }
+  .origin-badges {
+    display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+    margin-top: 52px;
+  }
+  .origin-badge {
+    text-align: center; max-width: 180px;
+  }
+  .origin-badge-icon { font-size: 2.8rem; margin-bottom: 12px; display: block; }
+  .origin-badge h4 {
+    font-family: Arial, sans-serif; font-weight: 700; font-size: .9rem;
+    color: var(--white); margin-bottom: 4px;
+  }
+  .origin-badge p {
+    font-family: Arial, sans-serif; font-size: .8rem; color: var(--muted); max-width: none;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050504; padding: 52px 24px;
+    border-top: 1px solid rgba(200,164,74,.15);
+  }
+  .footer-inner {
+    max-width: 1120px; margin: 0 auto;
+    display: flex; gap: 40px; justify-content: space-between; flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .footer-brand { max-width: 280px; }
+  .footer-brand h4 {
+    font-family: 'Arial Black', sans-serif; font-size: 1rem;
+    color: var(--gold); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em;
+  }
+  .footer-brand p {
+    font-family: Arial, sans-serif; font-size: .82rem; color: var(--muted); max-width: none;
+  }
+  .footer-links h5 {
+    font-family: Arial, sans-serif; font-weight: 700; font-size: .8rem;
+    color: var(--white); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .footer-links ul { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a {
+    font-family: Arial, sans-serif; font-size: .82rem; color: var(--muted);
+    text-decoration: none; transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1120px; margin: 36px auto 0;
+    padding-top: 24px; border-top: 1px solid rgba(255,255,255,.06);
+    display: flex; gap: 24px; justify-content: space-between; flex-wrap: wrap;
+  }
+  .footer-bottom p {
+    font-family: Arial, sans-serif; font-size: .78rem; color: var(--muted); max-width: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .abo-grid, .truth-grid { grid-template-columns: 1fr; gap: 40px; }
+    .science-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero-stats { gap: 24px; }
+    .hero-divider { display: none; }
+    .products-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── SUBSCRIPTION TOGGLE ── */
+  .sub-toggle-wrap {
+    display: flex; gap: 0; margin-bottom: 32px;
+    border: 1px solid rgba(200,164,74,.3); border-radius: 2px; overflow: hidden;
+    width: fit-content;
+  }
+  .sub-toggle {
+    background: transparent; color: var(--muted);
+    font-family: Arial, sans-serif; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase;
+    padding: 10px 22px; border: none; cursor: pointer; transition: all .2s;
+  }
+  .sub-toggle.active { background: var(--gold); color: var(--black); font-weight: 700; }
+
+  /* price JS hook */
+  .price-einzel, .price-abo { transition: opacity .2s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">KAMMERGUT <span>/ Tiergenuss</span></div>
+  <ul class="nav-links">
+    <li><a href="#products">Produkte</a></li>
+    <li><a href="#abo">Abo</a></li>
+    <li><a href="#truth">Zutaten</a></li>
+    <li><a href="#science">Warum Kammergut</a></li>
+  </ul>
+  <a href="#products" class="nav-cta">Jetzt bestellen</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Aus den heimischen Alpen · 100% Österreich</span>
+    <h1 class="hero-headline brand">
+      Dein Hund<br>
+      <span class="accent">isst was du gibst.</span>
+    </h1>
+    <p class="hero-sub">
+      87% Fleischanteil. Zutaten in Lebensmittelqualität.<br>
+      Zum Preis von normalem Hundefutter.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">87%</span>
+        <span class="hero-stat-label">Fleischanteil</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">0</span>
+        <span class="hero-stat-label">Getreide, Soja, Zucker</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">100%</span>
+        <span class="hero-stat-label">Made in Austria</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">24</span>
+        <span class="hero-stat-label">Monate haltbar</span>
+      </div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#products" class="btn-primary">Jetzt bestellen</a>
+      <a href="#science" class="btn-outline">Warum Kammergut?</a>
+    </div>
+  </div>
+</section>
+
+<!-- MIRROR STRIP -->
+<section id="mirror">
+  <div class="mirror-inner">
+    <p class="mirror-quote">
+      „Du bist dein Tier. Dein Tier bist du.<br>
+      <strong>Was du deinem Hund gibst, spiegelt sich in euch beiden.</strong>"
+    </p>
+    <p class="mirror-sub">
+      Hundehalter und ihre Tiere synchronisieren sich biophysikalisch — in Stresslevel, Immunsystem und Vitalität.
+      Deshalb ist die Wahl des richtigen Futters genauso wichtig wie deine eigene Ernährung.
+      Kammergut wurde nach menschlichen Lebensmittelstandards entwickelt — weil wir beides ernst nehmen.
+    </p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-label">Das Sortiment</p>
+      <h2>Drei Sorten. Ein Anspruch.</h2>
+    </div>
+
+    <!-- Subscription toggle -->
+    <div class="sub-toggle-wrap">
+      <button class="sub-toggle active" onclick="setMode('einzel', this)">Einzelkauf</button>
+      <button class="sub-toggle" onclick="setMode('abo', this)">Abo — 15% Rabatt</button>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- LAMM -->
+      <div class="product-card lamb">
+        <span class="product-animal">🐑</span>
+        <div class="product-name lamb">Lamm &amp; Gemüse</div>
+        <div class="product-tagline">Sanft. Ideal für sensible Hunde.</div>
+        <ul class="product-specs">
+          <li>87% Muskelfleisch &amp; Innereien (mind. 20% Lamm)</li>
+          <li>5% Karotte, 5% Kartoffel, Kräuter</li>
+          <li>Getreidefrei, zuckerfrei, kein Soja</li>
+          <li>Rohprotein 12,0% · Rohfett 5,5%</li>
+          <li>Haltbarkeit: 24 Monate ungeöffnet</li>
+        </ul>
+        <div class="size-row">
+          <button class="size-btn active" onclick="setSize(this, 'lamm', 200)">200 g</button>
+          <button class="size-btn" onclick="setSize(this, 'lamm', 400)">400 g</button>
+        </div>
+        <div class="product-price price-einzel" id="price-lamm">€ 1,99</div>
+        <div class="product-price-sub" id="sub-lamm">pro 200g Wurst · Einzelkauf</div>
+        <a href="https://energeia-shop.de/kammergut/" class="btn-product" id="cta-lamm">In den Warenkorb</a>
+      </div>
+
+      <!-- HUHN -->
+      <div class="product-card chicken">
+        <span class="product-animal">🐔</span>
+        <div class="product-name chicken">Huhn &amp; Gemüse</div>
+        <div class="product-tagline">Leicht. Bekömmlich. Ausgewogen.</div>
+        <ul class="product-specs">
+          <li>87% Hühnerfleisch (MDM), Lebensmittelqualität</li>
+          <li>5% Karotte, 5% Kartoffel, Kräuter</li>
+          <li>Getreidefrei, zuckerfrei, kein Soja</li>
+          <li>Rohprotein 12,7% · Rohfett 4,5%</li>
+          <li>Haltbarkeit: 24 Monate ungeöffnet</li>
+        </ul>
+        <div class="size-row">
+          <button class="size-btn active" onclick="setSize(this, 'huhn', 200)">200 g</button>
+          <button class="size-btn" onclick="setSize(this, 'huhn', 400)">400 g</button>
+        </div>
+        <div class="product-price" id="price-huhn">€ 1,99</div>
+        <div class="product-price-sub" id="sub-huhn">pro 200g Wurst · Einzelkauf</div>
+        <a href="https://energeia-shop.de/kammergut/" class="btn-product" id="cta-huhn">In den Warenkorb</a>
+      </div>
+
+      <!-- RIND -->
+      <div class="product-card beef">
+        <span class="product-animal">🐄</span>
+        <div class="product-name beef">Rind &amp; Gemüse</div>
+        <div class="product-tagline">Kraftvoll. Nährstoffreich.</div>
+        <ul class="product-specs">
+          <li>87% Rindfleisch &amp; Innereien (mind. 20% Rind)</li>
+          <li>5% Karotte, 5% Kartoffel, Kräuter</li>
+          <li>Getreidefrei, zuckerfrei, kein Soja</li>
+          <li>Rohprotein 13,4% · Rohfett 5,2%</li>
+          <li>Haltbarkeit: 24 Monate ungeöffnet</li>
+        </ul>
+        <div class="size-row">
+          <button class="size-btn active" onclick="setSize(this, 'rind', 200)">200 g</button>
+          <button class="size-btn" onclick="setSize(this, 'rind', 400)">400 g</button>
+        </div>
+        <div class="product-price" id="price-rind">€ 1,99</div>
+        <div class="product-price-sub" id="sub-rind">pro 200g Wurst · Einzelkauf</div>
+        <a href="https://energeia-shop.de/kammergut/" class="btn-product" id="cta-rind">In den Warenkorb</a>
+      </div>
+
+    </div><!-- /products-grid -->
+
+    <p style="font-family:Arial,sans-serif;font-size:.82rem;color:var(--muted);margin-top:24px;">
+      Hergestellt von Alto Fleischwerke GmbH · Florianerstraße 46, 8522 Gr.St. Florian ·
+      Für: Energeia GmbH, Rathausgasse 5/23, 4020 Linz · ATHT61980EG
+    </p>
+  </div>
+</section>
+
+<!-- ABO -->
+<section id="abo">
+  <div class="abo-inner">
+    <p class="section-label">Kammergut Abo</p>
+    <h2>Nie wieder ans Futter denken.</h2>
+    <p style="font-family:Arial,sans-serif;color:var(--muted);margin-top:16px;max-width:58ch;">
+      Automatische Lieferung, wann du es brauchst. Jederzeit pausierbar, jederzeit kündbar.
+      Und es kostet weniger als der Einzelkauf.
+    </p>
+
+    <div class="abo-grid">
+      <div class="abo-plans">
+        <div class="abo-plan active">
+          <div class="abo-plan-name">Monatliches Abo</div>
+          <div class="abo-plan-desc">Automatische Lieferung alle 30 Tage</div>
+          <div class="abo-plan-saving">15% Rabatt auf jede Lieferung</div>
+        </div>
+        <div class="abo-plan">
+          <div class="abo-plan-name">Quartals-Abo</div>
+          <div class="abo-plan-desc">Große Lieferung alle 3 Monate</div>
+          <div class="abo-plan-saving">18% Rabatt · Ideal für Vorrat</div>
+        </div>
+        <div class="abo-plan">
+          <div class="abo-plan-name">Jahres-Abo</div>
+          <div class="abo-plan-desc">Alles auf einmal, maximal günstig</div>
+          <div class="abo-plan-saving">22% Rabatt · Preis gesichert für 12 Monate</div>
+        </div>
+      </div>
+
+      <div class="abo-benefits">
+        <div class="abo-benefit">
+          <div class="abo-benefit-icon">📦</div>
+          <div class="abo-benefit-text">
+            <h4>Kostenloser Versand</h4>
+            <p>Jede Abo-Lieferung kommt versandkostenfrei zu dir nach Hause.</p>
+          </div>
+        </div>
+        <div class="abo-benefit">
+          <div class="abo-benefit-icon">⏸</div>
+          <div class="abo-benefit-text">
+            <h4>Jederzeit pausierbar</h4>
+            <p>Urlaub, Vorrat voll, Wechsel der Sorte — pausiere oder ändere per Klick.</p>
+          </div>
+        </div>
+        <div class="abo-benefit">
+          <div class="abo-benefit-icon">🎯</div>
+          <div class="abo-benefit-text">
+            <h4>Sorten nach Wunsch</h4>
+            <p>Lamm, Huhn, Rind oder Mix — du bestimmst die Zusammensetzung jeder Lieferung.</p>
+          </div>
+        </div>
+        <div class="abo-benefit">
+          <div class="abo-benefit-icon">🔓</div>
+          <div class="abo-benefit-text">
+            <h4>Keine Bindung</h4>
+            <p>Monatlich kündbar. Kein Kleingedrucktes. Kein Haken.</p>
+          </div>
+        </div>
+        <div class="abo-cta">
+          <a href="https://energeia-shop.de/kammergut/" class="btn-primary">Abo starten — 15% sparen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUTH / INGREDIENTS -->
+<section id="truth">
+  <div class="wrap">
+    <p class="section-label">Transparenz</p>
+    <h2>Was drin ist — und was nicht.</h2>
+
+    <div class="truth-grid">
+      <div>
+        <p style="font-family:Arial,sans-serif;color:var(--muted);margin-bottom:32px;font-size:.9rem;">
+          Wir haben Kammergut nach denselben Standards entwickelt, nach denen du Fleisch für dich selbst kaufen würdest.
+          Das bedeutet: kein Fleischmehl, kein Mais, kein Soja, keine Farbstoffe.
+          Nur Zutaten, die du beim Metzger auch so kaufen könntest.
+        </p>
+
+        <!-- Lamm ingredient bars -->
+        <div class="ingredient-block">
+          <div class="ingredient-name">Muskelfleisch &amp; Innereien</div>
+          <div class="ingredient-bar"><div class="ingredient-bar-fill" style="width:87%"></div></div>
+          <div class="ingredient-val">87% — mind. 20% vom Lamm/Rind/Huhn</div>
+        </div>
+        <div class="ingredient-block">
+          <div class="ingredient-name">Karotte</div>
+          <div class="ingredient-bar"><div class="ingredient-bar-fill" style="width:5%;background:var(--green-lt)"></div></div>
+          <div class="ingredient-val">5% — frisch, vitaminreich</div>
+        </div>
+        <div class="ingredient-block">
+          <div class="ingredient-name">Kartoffel</div>
+          <div class="ingredient-bar"><div class="ingredient-bar-fill" style="width:5%;background:var(--green-lt)"></div></div>
+          <div class="ingredient-val">5% — leicht verdauliche Energie</div>
+        </div>
+        <div class="ingredient-block">
+          <div class="ingredient-name">Kräuter &amp; Mineralstoffe</div>
+          <div class="ingredient-bar"><div class="ingredient-bar-fill" style="width:3%;background:var(--muted)"></div></div>
+          <div class="ingredient-val">Natürlich — keine künstlichen Zusätze</div>
+        </div>
+      </div>
+
+      <div>
+        <table class="truth-table">
+          <thead>
+            <tr>
+              <th>In anderen Futtern</th>
+              <th style="text-align:right">In Kammergut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fleischmehl (unbekannte Herkunft)</td>
+              <td class="good" style="text-align:right">Nein ✓</td>
+            </tr>
+            <tr>
+              <td>Mais oder Soja als Füllstoff</td>
+              <td class="good" style="text-align:right">Nein ✓</td>
+            </tr>
+            <tr>
+              <td>Zuckerzusatz / Sirup</td>
+              <td class="good" style="text-align:right">Nein ✓</td>
+            </tr>
+            <tr>
+              <td>Künstliche Farbstoffe</td>
+              <td class="good" style="text-align:right">Nein ✓</td>
+            </tr>
+            <tr>
+              <td>Konservierungsmittel (chemisch)</td>
+              <td class="good" style="text-align:right">Nein ✓</td>
+            </tr>
+            <tr>
+              <td>Geschmacksverstärker</td>
+              <td class="good" style="text-align:right">Nein ✓</td>
+            </tr>
+            <tr>
+              <td>Getreide</td>
+              <td class="good" style="text-align:right">Nein ✓</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="font-family:Arial,sans-serif;font-size:.8rem;color:var(--muted);margin-top:20px;">
+          Salmonella spp.: nicht nachweisbar · E.coli: nicht nachweisbar · Gesamtkeimzahl: &lt;10 KBE/g<br>
+          Mikrobiologisch geprüft, Charge by Charge.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE / SPIEGEL -->
+<section id="science">
+  <div class="science-inner">
+    <p class="section-label">Der Spiegeleffekt</p>
+    <h2>Warum das Futter deines Hundes<br>auch dich betrifft.</h2>
+
+    <div class="science-grid">
+      <div class="science-card">
+        <div class="science-card-num">01</div>
+        <h3>Kortisol-Sync</h3>
+        <p>Hunde und Halter synchronisieren ihre Stresshormonwerte über gemeinsame Zeit. Ein gesunder, satter Hund senkt messbar deinen eigenen Kortisolspiegel.</p>
+      </div>
+      <div class="science-card">
+        <div class="science-card-num">02</div>
+        <h3>Geteiltes Mikrobiom</h3>
+        <p>Die Darmflora von Hunden und Haltern überschneidet sich signifikant. Das Immunsystem deines Hundes beeinflusst deines — und umgekehrt.</p>
+      </div>
+      <div class="science-card">
+        <div class="science-card-num">03</div>
+        <h3>Vitalität überträgt sich</h3>
+        <p>Ein nährstoffreich ernährter Hund hat mehr Energie, weniger Verhaltensauffälligkeiten und einen messbaren Effekt auf die Lebensqualität seines Halters.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:52px;">
+      <p style="font-family:Arial,sans-serif;font-style:italic;color:var(--muted);max-width:60ch;margin:0 auto 32px;">
+        „Ernährung wirkt bei Hunden genauso wie beim Menschen — Darmgesundheit, Energie, Immunität, Stimmung.
+        Wort für Wort, Organ für Organ. Gleiche Regeln. Andere Spezies."
+      </p>
+      <a href="#products" class="btn-primary">Kammergut jetzt bestellen</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDING TABLE -->
+<section id="feeding">
+  <div class="wrap--narrow">
+    <p class="section-label">Fütterungsempfehlung</p>
+    <h2 style="margin-bottom:32px;">Wie viel braucht dein Hund?</h2>
+    <table class="feeding-table">
+      <thead>
+        <tr>
+          <th>Körpergewicht</th>
+          <th>Tagesbedarf</th>
+          <th>200g Würste</th>
+          <th>400g Würste</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>bis 5 kg</td>
+          <td>ca. 200 g</td>
+          <td>1 Wurst/Tag</td>
+          <td>½ Wurst/Tag</td>
+        </tr>
+        <tr>
+          <td>5–10 kg</td>
+          <td>ca. 300 g</td>
+          <td>1,5 Würste/Tag</td>
+          <td>¾ Wurst/Tag</td>
+        </tr>
+        <tr>
+          <td>10–20 kg</td>
+          <td>ca. 400 g</td>
+          <td>2 Würste/Tag</td>
+          <td>1 Wurst/Tag</td>
+        </tr>
+        <tr>
+          <td>20–40 kg</td>
+          <td>ca. 800 g</td>
+          <td>4 Würste/Tag</td>
+          <td>2 Würste/Tag</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family:Arial,sans-serif;font-size:.82rem;color:var(--muted);margin-top:16px;">
+      Tagesbedarf kann durch Alter, Aktivität und Gewicht variieren. Immer frisches Wasser zur Verfügung stellen.
+      Snacks bei der Gesamtmenge berücksichtigen.
+    </p>
+  </div>
+</section>
+
+<!-- ORIGIN -->
+<section id="origin">
+  <div class="origin-inner">
+    <p class="section-label">Herkunft &amp; Produktion</p>
+    <h2>Aus den heimischen Alpen.</h2>
+    <p style="font-family:Arial,sans-serif;color:var(--muted);margin-top:16px;max-width:60ch;margin-inline:auto;">
+      Kammergut wird von Alto Fleischwerke GmbH in der Steiermark produziert —
+      unter österreichischen Lebensmittelstandards, zertifiziert, chargenkontrolliert.
+    </p>
+    <div class="origin-badges">
+      <div class="origin-badge">
+        <span class="origin-badge-icon">🏔</span>
+        <h4>Heimische Zutaten</h4>
+        <p>Fleisch aus österreichischer Landwirtschaft, soweit möglich regional bezogen.</p>
+      </div>
+      <div class="origin-badge">
+        <span class="origin-badge-icon">🇦🇹</span>
+        <h4>Made in Austria</h4>
+        <p>100% in Österreich hergestellt. Zulassung ATHT61980EG.</p>
+      </div>
+      <div class="origin-badge">
+        <span class="origin-badge-icon">🔬</span>
+        <h4>Mikrobiologisch geprüft</h4>
+        <p>Salmonella, E.coli und Keimzahl werden chargenweise kontrolliert.</p>
+      </div>
+      <div class="origin-badge">
+        <span class="origin-badge-icon">📅</span>
+        <h4>24 Monate haltbar</h4>
+        <p>Ungeöffnet bei Raumtemperatur — kein Tiefkühlbedarf, kein Stress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>Kammergut</h4>
+      <p>Tiergenuss für Hunde. Entwickelt mit menschlichem Anspruch — weil Hunde ihn verdienen.</p>
+      <p style="margin-top:12px;">Ein Produkt von Energeia GmbH<br>Rathausgasse 5/23, 4020 Linz</p>
+    </div>
+    <div class="footer-links">
+      <h5>Produkte</h5>
+      <ul>
+        <li><a href="#">Lamm &amp; Gemüse 200g</a></li>
+        <li><a href="#">Lamm &amp; Gemüse 400g</a></li>
+        <li><a href="#">Huhn &amp; Gemüse 200g</a></li>
+        <li><a href="#">Huhn &amp; Gemüse 400g</a></li>
+        <li><a href="#">Rind &amp; Gemüse 200g</a></li>
+        <li><a href="#">Rind &amp; Gemüse 400g</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Information</h5>
+      <ul>
+        <li><a href="#">Zutaten &amp; Analysen</a></li>
+        <li><a href="#">Fütterungsempfehlung</a></li>
+        <li><a href="#">Abo &amp; Lieferung</a></li>
+        <li><a href="#">Kontakt</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">Impressum</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Energeia GmbH · Alle Rechte vorbehalten</p>
+    <p>office@energeia.cloud · energeia-shop.de</p>
+  </div>
+</footer>
+
+<script>
+  // Price data
+  const prices = {
+    lamm:  { 200: { einzel: '€ 1,99', abo: '€ 1,69' }, 400: { einzel: '€ 3,49', abo: '€ 2,97' } },
+    huhn:  { 200: { einzel: '€ 1,99', abo: '€ 1,69' }, 400: { einzel: '€ 3,49', abo: '€ 2,97' } },
+    rind:  { 200: { einzel: '€ 1,99', abo: '€ 1,69' }, 400: { einzel: '€ 3,49', abo: '€ 2,97' } },
+  };
+
+  let currentMode = 'einzel';
+  const currentSize = { lamm: 200, huhn: 200, rind: 200 };
+
+  function updatePrice(sorte) {
+    const size = currentSize[sorte];
+    const p = prices[sorte][size];
+    document.getElementById('price-' + sorte).textContent = p[currentMode];
+    document.getElementById('sub-' + sorte).textContent =
+      `pro ${size}g Wurst · ` + (currentMode === 'abo' ? 'Abo (15% gespart)' : 'Einzelkauf');
+  }
+
+  function setMode(mode, btn) {
+    currentMode = mode;
+    document.querySelectorAll('.sub-toggle').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    ['lamm','huhn','rind'].forEach(updatePrice);
+  }
+
+  function setSize(btn, sorte, size) {
+    currentSize[sorte] = size;
+    btn.closest('.size-row').querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updatePrice(sorte);
+  }
+
+  // Animate ingredient bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.ingredient-bar-fill').forEach(bar => {
+          bar.style.width = bar.style.width; // trigger CSS
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.ingredient-block').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
