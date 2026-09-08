@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<title>KAMMERGUT — Dein Hund isst was du gibst.</title>
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<![endif]-->
+<style>
+  /* Reset */
+  body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0 !important; padding: 0 !important;
+    background-color: #0a0a08;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .email-wrapper { background: #0a0a08; padding: 0; }
+  .email-body { max-width: 620px; margin: 0 auto; }
+
+  /* Sections */
+  .sec { padding: 0; }
+  .inner { padding: 48px 40px; }
+  .inner-sm { padding: 32px 40px; }
+
+  /* Type */
+  h1 {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 42px; line-height: 1.05;
+    color: #f5f2eb; margin: 0 0 16px; text-transform: uppercase; letter-spacing: .02em;
+  }
+  h1 .gold { color: #c8a44a; }
+  h2 {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 26px; color: #f5f2eb; margin: 0 0 14px;
+    text-transform: uppercase; letter-spacing: .02em;
+  }
+  h3 {
+    font-family: Arial, sans-serif; font-weight: 700;
+    font-size: 13px; color: #c8a44a; letter-spacing: .14em;
+    text-transform: uppercase; margin: 0 0 10px;
+  }
+  p {
+    font-family: Arial, sans-serif; font-size: 15px;
+    line-height: 1.65; color: #b5ae9e; margin: 0 0 16px;
+  }
+  p strong { color: #f5f2eb; }
+  .muted { color: #7a7060 !important; font-size: 13px !important; }
+
+  /* Divider */
+  .divider { height: 3px; background: #c8a44a; }
+  .divider-thin { height: 1px; background: rgba(200,164,74,.2); }
+
+  /* CTA Button */
+  .btn-wrap { text-align: center; padding: 24px 0 8px; }
+  .btn {
+    display: inline-block;
+    background: #c8a44a; color: #0a0a08 !important;
+    font-family: Arial, sans-serif; font-weight: 700; font-size: 13px;
+    letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; padding: 16px 40px; border-radius: 2px;
+  }
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid rgba(200,164,74,.5); color: #c8a44a !important;
+    font-family: Arial, sans-serif; font-weight: 700; font-size: 13px;
+    letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; padding: 15px 40px; border-radius: 2px;
+  }
+
+  /* Product rows */
+  .product-row { padding: 28px 40px; border-left: 4px solid transparent; }
+  .product-row.lamb { border-left-color: #4e8f47; }
+  .product-row.chicken { border-left-color: #c87832; }
+  .product-row.beef { border-left-color: #8b2020; }
+  .product-name {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px; text-transform: uppercase; margin: 0 0 4px;
+  }
+  .product-name.lamb { color: #4e8f47; }
+  .product-name.chicken { color: #e0943a; }
+  .product-name.beef { color: #c84040; }
+  .product-tagline { font-style: italic; color: #7a7060; font-size: 13px; margin: 0 0 10px; }
+  .product-spec {
+    font-family: Arial, sans-serif; font-size: 13px; color: #b5ae9e;
+    margin: 0 0 4px; padding-left: 14px; position: relative;
+  }
+  .product-spec::before { content: '—'; position: absolute; left: 0; color: #c8a44a; }
+  .product-price-row {
+    margin-top: 14px; display: flex; gap: 24px; align-items: baseline;
+  }
+  .product-price {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 22px; color: #f5f2eb;
+  }
+  .product-price-sub { font-family: Arial, sans-serif; font-size: 12px; color: #7a7060; }
+
+  /* Ingredient bars (email-safe: table-based) */
+  .bar-wrap { margin: 12px 0; }
+  .bar-label { font-family: Arial, sans-serif; font-size: 12px; color: #b5ae9e; margin-bottom: 4px; }
+  .bar-outer { background: rgba(255,255,255,.08); height: 5px; border-radius: 2px; }
+  .bar-inner { height: 5px; border-radius: 2px; background: #c8a44a; }
+
+  /* Fact chips */
+  .facts { padding: 28px 40px; background: #1a1a14; }
+  .fact-row { display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start; }
+  .fact-icon { font-size: 20px; flex-shrink: 0; width: 28px; text-align: center; }
+  .fact-text { font-family: Arial, sans-serif; font-size: 14px; color: #b5ae9e; line-height: 1.5; }
+  .fact-text strong { color: #f5f2eb; }
+
+  /* Science */
+  .sci-num {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 40px; color: rgba(200,164,74,.15); line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  /* Header */
+  .email-header {
+    background: #0a0a08; padding: 20px 40px;
+    border-bottom: 1px solid rgba(200,164,74,.15);
+    text-align: center;
+  }
+  .email-header-brand {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 13px; letter-spacing: .16em; color: #c8a44a; text-transform: uppercase;
+  }
+  .email-header-sub {
+    font-family: Arial, sans-serif; font-size: 11px; color: #7a7060; letter-spacing: .08em;
+    margin-top: 3px;
+  }
+
+  /* Footer */
+  .email-footer { padding: 32px 40px; text-align: center; background: #050504; }
+  .email-footer p { font-size: 11px !important; color: #5a5248 !important; margin: 0 0 6px; }
+  .email-footer a { color: #7a7060 !important; text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .inner, .inner-sm, .product-row, .facts { padding-left: 24px !important; padding-right: 24px !important; }
+    h1 { font-size: 30px !important; }
+    h2 { font-size: 22px !important; }
+  }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td align="center">
+<table class="email-body" width="620" cellpadding="0" cellspacing="0" border="0">
+
+  <!-- HEADER -->
+  <tr><td class="email-header">
+    <div class="email-header-brand">KAMMERGUT</div>
+    <div class="email-header-sub">Tiergenuss für Hunde · Aus den heimischen Alpen</div>
+  </td></tr>
+
+  <!-- GOLD DIVIDER -->
+  <tr><td class="divider"></td></tr>
+
+  <!-- HERO -->
+  <tr><td class="inner" style="background:#0f0f0c;">
+    <h3>Neu im Energeia Shop</h3>
+    <h1>
+      Dein Hund isst<br>
+      <span class="gold">was du gibst.</span>
+    </h1>
+    <p>
+      Die meisten Hundefutter enthalten Fleischmehl, Mais, Zuckerzusatz und Farben.
+      Kammergut enthält <strong>87% Muskelfleisch in Lebensmittelqualität</strong> — zum Preis von normalem Hundefutter.
+    </p>
+    <p>
+      Natürlich. Regional. Ehrlich. <strong>100% aus Österreich.</strong>
+    </p>
+    <div class="btn-wrap" style="text-align:left; padding-top:28px;">
+      <a href="https://energeia-shop.de/kammergut/" class="btn">Jetzt entdecken</a>
+    </div>
+  </td></tr>
+
+  <!-- STATS ROW -->
+  <tr><td style="background:#1a1a14; padding:0;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td width="25%" align="center" style="padding:28px 16px; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-family:'Arial Black',Arial,sans-serif;font-size:28px;color:#c8a44a;line-height:1;">87%</div>
+          <div style="font-family:Arial,sans-serif;font-size:11px;color:#7a7060;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Fleischanteil</div>
+        </td>
+        <td width="25%" align="center" style="padding:28px 16px; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-family:'Arial Black',Arial,sans-serif;font-size:28px;color:#c8a44a;line-height:1;">0</div>
+          <div style="font-family:Arial,sans-serif;font-size:11px;color:#7a7060;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Getreide / Soja</div>
+        </td>
+        <td width="25%" align="center" style="padding:28px 16px; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-family:'Arial Black',Arial,sans-serif;font-size:28px;color:#c8a44a;line-height:1;">3</div>
+          <div style="font-family:Arial,sans-serif;font-size:11px;color:#7a7060;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Sorten</div>
+        </td>
+        <td width="25%" align="center" style="padding:28px 16px;">
+          <div style="font-family:'Arial Black',Arial,sans-serif;font-size:28px;color:#c8a44a;line-height:1;">24</div>
+          <div style="font-family:Arial,sans-serif;font-size:11px;color:#7a7060;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Monate haltbar</div>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- MIRROR BLOCK -->
+  <tr><td style="background:#141410; padding:44px 40px; border-top:1px solid rgba(200,164,74,.2); border-bottom:1px solid rgba(200,164,74,.2);">
+    <p style="font-size:18px;line-height:1.5;font-style:italic;color:#f5f2eb;margin:0 0 16px;">
+      „Du bist dein Tier. Dein Tier bist du.<br>
+      Was du deinem Hund gibst, spiegelt sich in euch beiden."
+    </p>
+    <p style="font-size:14px;color:#7a7060;margin:0;">
+      Hunde und ihre Halter synchronisieren sich biophysikalisch — in Stress, Immunsystem und Vitalität.
+      Die Qualität des Futters ist deshalb nicht nur eine Frage des Tierwohls.
+      Sie ist eine Frage deines gemeinsamen Wohlbefindens.
+    </p>
+  </td></tr>
+
+  <!-- PRODUCTS HEADER -->
+  <tr><td class="inner-sm" style="background:#0a0a08; padding-bottom:0;">
+    <h3>Das Sortiment</h3>
+    <h2>Drei Sorten. Ein Anspruch.</h2>
+  </td></tr>
+  <tr><td class="divider-thin"></td></tr>
+
+  <!-- PRODUCT: LAMM -->
+  <tr><td class="product-row lamb" style="background:#111108;">
+    <div style="font-size:28px;margin-bottom:10px;">🐑</div>
+    <div class="product-name lamb">Lamm &amp; Gemüse</div>
+    <div class="product-tagline">Sanft. Ideal für sensible Hunde.</div>
+    <div class="product-spec">87% Muskelfleisch &amp; Innereien (mind. 20% Lamm)</div>
+    <div class="product-spec">5% Karotte · 5% Kartoffel · Kräuter</div>
+    <div class="product-spec">Rohprotein 12,0% · Rohfett 5,5% · Feuchtigkeit 75%</div>
+    <div class="product-spec">Getreidefrei, zuckerfrei, kein Soja, keine Zusatzstoffe</div>
+    <div class="bar-wrap">
+      <div class="bar-label">Fleischanteil</div>
+      <table width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td width="87%" style="height:5px;background:#c8a44a;border-radius:2px 0 0 2px;"></td>
+        <td width="13%" style="height:5px;background:rgba(255,255,255,.08);border-radius:0 2px 2px 0;"></td>
+      </tr></table>
+      <div class="bar-label" style="margin-top:3px;text-align:right;">87%</div>
+    </div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;"><tr>
+      <td>
+        <div class="product-price">€ 1,99 <span style="font-size:14px;color:#7a7060;font-family:Arial,sans-serif;font-weight:normal;">/ 200g</span></div>
+        <div class="product-price-sub">€ 3,49 / 400g · Abo ab € 1,69</div>
+      </td>
+      <td align="right" valign="middle">
+        <a href="https://energeia-shop.de/kammergut/" class="btn-outline">Bestellen</a>
+      </td>
+    </tr></table>
+  </td></tr>
+  <tr><td class="divider-thin"></td></tr>
+
+  <!-- PRODUCT: HUHN -->
+  <tr><td class="product-row chicken" style="background:#111108;">
+    <div style="font-size:28px;margin-bottom:10px;">🐔</div>
+    <div class="product-name chicken">Huhn &amp; Gemüse</div>
+    <div class="product-tagline">Leicht. Bekömmlich. Ausgewogen.</div>
+    <div class="product-spec">87% Hühnerfleisch in Lebensmittelqualität (MDM)</div>
+    <div class="product-spec">5% Karotte · 5% Kartoffel · Kräuter</div>
+    <div class="product-spec">Rohprotein 12,7% · Rohfett 4,5% · Feuchtigkeit 77,4%</div>
+    <div class="product-spec">Getreidefrei, zuckerfrei, kein Soja, keine Zusatzstoffe</div>
+    <div class="bar-wrap">
+      <div class="bar-label">Fleischanteil</div>
+      <table width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td width="87%" style="height:5px;background:#c87832;border-radius:2px 0 0 2px;"></td>
+        <td width="13%" style="height:5px;background:rgba(255,255,255,.08);border-radius:0 2px 2px 0;"></td>
+      </tr></table>
+      <div class="bar-label" style="margin-top:3px;text-align:right;">87%</div>
+    </div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;"><tr>
+      <td>
+        <div class="product-price">€ 1,99 <span style="font-size:14px;color:#7a7060;font-family:Arial,sans-serif;font-weight:normal;">/ 200g</span></div>
+        <div class="product-price-sub">€ 3,49 / 400g · Abo ab € 1,69</div>
+      </td>
+      <td align="right" valign="middle">
+        <a href="https://energeia-shop.de/kammergut/" class="btn-outline">Bestellen</a>
+      </td>
+    </tr></table>
+  </td></tr>
+  <tr><td class="divider-thin"></td></tr>
+
+  <!-- PRODUCT: RIND -->
+  <tr><td class="product-row beef" style="background:#111108;">
+    <div style="font-size:28px;margin-bottom:10px;">🐄</div>
+    <div class="product-name beef">Rind &amp; Gemüse</div>
+    <div class="product-tagline">Kraftvoll. Nährstoffreich.</div>
+    <div class="product-spec">87% Rindfleisch &amp; Innereien (mind. 20% Rind)</div>
+    <div class="product-spec">5% Karotte · 5% Kartoffel · Kräuter</div>
+    <div class="product-spec">Rohprotein 13,4% · Rohfett 5,2% · Feuchtigkeit 76,3%</div>
+    <div class="product-spec">Getreidefrei, zuckerfrei, kein Soja, keine Zusatzstoffe</div>
+    <div class="bar-wrap">
+      <div class="bar-label">Fleischanteil</div>
+      <table width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td width="87%" style="height:5px;background:#8b2020;border-radius:2px 0 0 2px;"></td>
+        <td width="13%" style="height:5px;background:rgba(255,255,255,.08);border-radius:0 2px 2px 0;"></td>
+      </tr></table>
+      <div class="bar-label" style="margin-top:3px;text-align:right;">87%</div>
+    </div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;"><tr>
+      <td>
+        <div class="product-price">€ 1,99 <span style="font-size:14px;color:#7a7060;font-family:Arial,sans-serif;font-weight:normal;">/ 200g</span></div>
+        <div class="product-price-sub">€ 3,49 / 400g · Abo ab € 1,69</div>
+      </td>
+      <td align="right" valign="middle">
+        <a href="https://energeia-shop.de/kammergut/" class="btn-outline">Bestellen</a>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <tr><td class="divider"></td></tr>
+
+  <!-- ABO BLOCK -->
+  <tr><td style="background:#0f120a; padding:44px 40px;">
+    <h3>Kammergut Abo</h3>
+    <h2>Nie wieder ans Futter denken.</h2>
+    <p>Automatische Lieferung, wann du es brauchst. Jederzeit pausierbar, jederzeit kündbar. Und billiger als der Einzelkauf.</p>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+      <tr>
+        <td style="padding:16px;background:rgba(200,164,74,.06);border-left:3px solid #c8a44a;">
+          <div style="font-family:Arial,sans-serif;font-weight:700;font-size:14px;color:#f5f2eb;margin-bottom:2px;">Monatliches Abo</div>
+          <div style="font-family:Arial,sans-serif;font-size:12px;color:#7a7060;">Automatisch alle 30 Tage · <span style="color:#4e8f47;">15% Rabatt</span></div>
+        </td>
+      </tr>
+      <tr><td style="height:8px;"></td></tr>
+      <tr>
+        <td style="padding:16px;background:#1a1a14;">
+          <div style="font-family:Arial,sans-serif;font-weight:700;font-size:14px;color:#f5f2eb;margin-bottom:2px;">Quartals-Abo</div>
+          <div style="font-family:Arial,sans-serif;font-size:12px;color:#7a7060;">Große Lieferung alle 3 Monate · <span style="color:#4e8f47;">18% Rabatt</span></div>
+        </td>
+      </tr>
+      <tr><td style="height:8px;"></td></tr>
+      <tr>
+        <td style="padding:16px;background:#1a1a14;">
+          <div style="font-family:Arial,sans-serif;font-weight:700;font-size:14px;color:#f5f2eb;margin-bottom:2px;">Jahres-Abo</div>
+          <div style="font-family:Arial,sans-serif;font-size:12px;color:#7a7060;">Alles auf einmal, maximal günstig · <span style="color:#4e8f47;">22% Rabatt · Preis für 12 Monate gesichert</span></div>
+        </td>
+      </tr>
+    </table>
+    <p class="muted">Kostenloser Versand · Sorten nach Wahl · Keine Bindung · Monatlich kündbar</p>
+    <div class="btn-wrap" style="text-align:left;padding-top:12px;">
+      <a href="https://energeia-shop.de/kammergut/" class="btn">Abo starten — 15% sparen</a>
+    </div>
+  </td></tr>
+
+  <!-- SCIENCE -->
+  <tr><td style="background:#0a0a08; padding:44px 40px;">
+    <h3>Der Spiegeleffekt</h3>
+    <h2>Warum das Futter deines Hundes auch dich betrifft.</h2>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;">
+      <tr>
+        <td style="padding:0 16px 0 0; vertical-align:top; width:33%;">
+          <div class="sci-num">01</div>
+          <div style="font-family:Arial,sans-serif;font-weight:700;font-size:13px;color:#c8a44a;margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em;">Kortisol-Sync</div>
+          <p style="font-size:13px;color:#7a7060;line-height:1.55;margin:0;">Hunde und Halter synchronisieren ihre Stresshormone. Ein gesunder Hund senkt deinen Kortisolspiegel messbar.</p>
+        </td>
+        <td style="padding:0 8px; vertical-align:top; width:33%;">
+          <div class="sci-num">02</div>
+          <div style="font-family:Arial,sans-serif;font-weight:700;font-size:13px;color:#c8a44a;margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em;">Geteiltes Mikrobiom</div>
+          <p style="font-size:13px;color:#7a7060;line-height:1.55;margin:0;">Die Darmflora von Hund und Halter überschneidet sich. Das Immunsystem deines Hundes beeinflusst deines.</p>
+        </td>
+        <td style="padding:0 0 0 16px; vertical-align:top; width:33%;">
+          <div class="sci-num">03</div>
+          <div style="font-family:Arial,sans-serif;font-weight:700;font-size:13px;color:#c8a44a;margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em;">Vitalität überträgt sich</div>
+          <p style="font-size:13px;color:#7a7060;line-height:1.55;margin:0;">Gut ernährte Hunde haben mehr Energie und weniger Verhaltensauffälligkeiten — direkt messbar für Halter.</p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- FACTS / NICHT DRIN -->
+  <tr><td style="background:#141410;padding:0;">
+    <div class="divider-thin"></div>
+    <div style="padding:36px 40px;">
+      <h3>Was nicht drin ist</h3>
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="50%" style="vertical-align:top;padding-right:16px;">
+            <div class="fact-row" style="display:flex;gap:10px;margin-bottom:12px;">
+              <div style="color:#c8a44a;font-weight:700;font-size:14px;flex-shrink:0;">✓</div>
+              <div style="font-family:Arial,sans-serif;font-size:13px;color:#b5ae9e;"><strong style="color:#f5f2eb;">Kein Fleischmehl</strong><br>Nur namentlich genannte Zutaten</div>
+            </div>
+            <div class="fact-row" style="display:flex;gap:10px;margin-bottom:12px;">
+              <div style="color:#c8a44a;font-weight:700;font-size:14px;flex-shrink:0;">✓</div>
+              <div style="font-family:Arial,sans-serif;font-size:13px;color:#b5ae9e;"><strong style="color:#f5f2eb;">Kein Getreide</strong><br>Weder Mais, Weizen noch Soja</div>
+            </div>
+            <div class="fact-row" style="display:flex;gap:10px;margin-bottom:12px;">
+              <div style="color:#c8a44a;font-weight:700;font-size:14px;flex-shrink:0;">✓</div>
+              <div style="font-family:Arial,sans-serif;font-size:13px;color:#b5ae9e;"><strong style="color:#f5f2eb;">Kein Zuckerzusatz</strong><br>Keine Abhängigkeit durch Aroma-Tricks</div>
+            </div>
+          </td>
+          <td width="50%" style="vertical-align:top;padding-left:16px;">
+            <div class="fact-row" style="display:flex;gap:10px;margin-bottom:12px;">
+              <div style="color:#c8a44a;font-weight:700;font-size:14px;flex-shrink:0;">✓</div>
+              <div style="font-family:Arial,sans-serif;font-size:13px;color:#b5ae9e;"><strong style="color:#f5f2eb;">Keine Farbstoffe</strong><br>Farbe für den Hund. Hunde sind farbenblind.</div>
+            </div>
+            <div class="fact-row" style="display:flex;gap:10px;margin-bottom:12px;">
+              <div style="color:#c8a44a;font-weight:700;font-size:14px;flex-shrink:0;">✓</div>
+              <div style="font-family:Arial,sans-serif;font-size:13px;color:#b5ae9e;"><strong style="color:#f5f2eb;">Keine Konservierungsmittel</strong><br>Natürliche Haltbarkeit. 24 Monate.</div>
+            </div>
+            <div class="fact-row" style="display:flex;gap:10px;margin-bottom:12px;">
+              <div style="color:#c8a44a;font-weight:700;font-size:14px;flex-shrink:0;">✓</div>
+              <div style="font-family:Arial,sans-serif;font-size:13px;color:#b5ae9e;"><strong style="color:#f5f2eb;">Mikrobiologisch geprüft</strong><br>Salmonella &amp; E.coli: nicht nachweisbar</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="divider-thin"></div>
+  </td></tr>
+
+  <!-- FINAL CTA -->
+  <tr><td style="background:#0f0f0c;padding:52px 40px;text-align:center;">
+    <p style="font-size:17px;font-style:italic;color:#f5f2eb;max-width:380px;margin:0 auto 28px;">
+      „Der Hund kann das Etikett nicht lesen.<br>
+      Er vertraut dir bedingungslos.<br>
+      Wir machen dieses Vertrauen das wert."
+    </p>
+    <a href="https://energeia-shop.de/kammergut/" class="btn" style="display:inline-block;margin-bottom:16px;">Jetzt bestellen</a>
+    <br>
+    <a href="https://energeia-shop.de/kammergut/" style="font-family:Arial,sans-serif;font-size:12px;color:#7a7060;">energeia-shop.de/kammergut</a>
+  </td></tr>
+
+  <tr><td class="divider"></td></tr>
+
+  <!-- FOOTER -->
+  <tr><td class="email-footer">
+    <p><strong style="color:#7a7060;">KAMMERGUT — Tiergenuss für Hunde</strong></p>
+    <p>Ein Produkt von Energeia GmbH · Rathausgasse 5/23, 4020 Linz</p>
+    <p>Produziert von Alto Fleischwerke GmbH · Florianerstraße 46, 8522 Gr.St. Florian · AT HT61980 EG</p>
+    <p style="margin-top:16px;">
+      <a href="#">Abbestellen</a> &nbsp;·&nbsp;
+      <a href="#">Datenschutz</a> &nbsp;·&nbsp;
+      <a href="https://energeia-shop.de/kammergut/">Shop besuchen</a>
+    </p>
+    <p style="margin-top:12px;font-size:10px !important;">
+      Du erhältst diese E-Mail, weil du dich für den Energeia Newsletter angemeldet hast.
+    </p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PLAIN TEXT VERSION (for reference / MailerLite text part) -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--
+PLAIN TEXT VERSION — für MailerLite Text-Alternative
+
+KAMMERGUT — Tiergenuss für Hunde
+
+Dein Hund isst was du gibst.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Die meisten Hundefutter enthalten Fleischmehl, Mais, Zuckerzusatz und Farben.
+Kammergut enthält 87% Muskelfleisch in Lebensmittelqualität — zum Preis von normalem Hundefutter.
+Natürlich. Regional. Ehrlich. 100% aus Österreich.
+
+→ Jetzt entdecken: https://energeia-shop.de/kammergut/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+87% Fleischanteil | 0 Getreide/Soja | 3 Sorten | 24 Monate haltbar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Du bist dein Tier. Dein Tier bist du. Was du deinem Hund gibst, spiegelt sich in euch beiden."
+
+Hunde und ihre Halter synchronisieren sich biophysikalisch — in Stress, Immunsystem und Vitalität.
+Die Wahl des richtigen Futters ist genauso wichtig wie deine eigene Ernährung.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAS SORTIMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐑 LAMM & GEMÜSE
+Sanft. Ideal für sensible Hunde.
+87% Muskelfleisch & Innereien (mind. 20% Lamm)
+5% Karotte · 5% Kartoffel · Kräuter
+Rohprotein 12,0% · Rohfett 5,5%
+200g: € 1,99 | 400g: € 3,49 | Abo ab € 1,69
+→ https://energeia-shop.de/kammergut/
+
+🐔 HUHN & GEMÜSE
+Leicht. Bekömmlich. Ausgewogen.
+87% Hühnerfleisch (MDM) in Lebensmittelqualität
+5% Karotte · 5% Kartoffel · Kräuter
+Rohprotein 12,7% · Rohfett 4,5%
+200g: € 1,99 | 400g: € 3,49 | Abo ab € 1,69
+→ https://energeia-shop.de/kammergut/
+
+🐄 RIND & GEMÜSE
+Kraftvoll. Nährstoffreich.
+87% Rindfleisch & Innereien (mind. 20% Rind)
+5% Karotte · 5% Kartoffel · Kräuter
+Rohprotein 13,4% · Rohfett 5,2%
+200g: € 1,99 | 400g: € 3,49 | Abo ab € 1,69
+→ https://energeia-shop.de/kammergut/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KAMMERGUT ABO — NIE WIEDER ANS FUTTER DENKEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Monatliches Abo: 15% Rabatt · automatisch alle 30 Tage
+Quartals-Abo:    18% Rabatt · große Lieferung alle 3 Monate
+Jahres-Abo:      22% Rabatt · Preis 12 Monate gesichert
+
+Kostenloser Versand | Jederzeit kündbar | Sorten nach Wahl
+
+→ Abo starten: https://energeia-shop.de/kammergut/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WAS NICHT DRIN IST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Kein Fleischmehl
+✓ Kein Getreide, Mais oder Soja
+✓ Kein Zuckerzusatz
+✓ Keine Farbstoffe
+✓ Keine Konservierungsmittel
+✓ Mikrobiologisch geprüft — Salmonella & E.coli: nicht nachweisbar
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Der Hund kann das Etikett nicht lesen. Er vertraut dir bedingungslos.
+Wir machen dieses Vertrauen das wert."
+
+→ Jetzt bestellen: https://energeia-shop.de/kammergut/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Energeia GmbH · Rathausgasse 5/23, 4020 Linz · office@energeia.cloud
+Produziert: Alto Fleischwerke GmbH · AT HT61980 EG
+
+Abbestellen: [unsubscribe_link]
+-->
+
+</div>
+</body>
+</html>
